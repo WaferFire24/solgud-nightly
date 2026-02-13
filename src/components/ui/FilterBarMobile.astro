@@ -1,0 +1,27 @@
+---
+import { SlidersHorizontal } from "lucide-react";
+const { params } = Astro.props;
+---
+
+<div
+  class="lg:hidden bg-gray-900 px-4 py-3 flex items-center justify-between text-white sticky top-20 z-40"
+>
+  <button
+    id="button-modal-filter-open"
+    type="button"
+    class="flex items-center gap-2 font-bold text-sm"
+  >
+    <SlidersHorizontal className="h-5 w-5" />
+    <span class="uppercase">categories</span>
+  </button>
+
+  <div class="flex gap-2">
+    {
+      params.map(([key, value]) => (
+        <span class="bg-blue-600 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">
+          {value}
+        </span>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CompanyTable from "../components/react/CompanyTable";
+import CompanyTables from "../components/react/CompanyTables";
+// import PartnerSlider from '../components/home/PartnerSlider.astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import msifactory from "@assets/company/IMG_4419.jpg";
+// Data untuk Kotak Portfolio (Kotak X di sketsa)
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/*.{jpg,jpeg,png,webp}",
+  { eager: true },
+);
+const imageList = Object.values(images) as { default: ImageMetadata }[];
+
+const companyData = [
+  {
+    _id: "tksl",
+    nama: "Toyo Kanetsu K.K.",
+    bidang:
+      "Sistem penanganan material (Material Handling), konveyor, dan sistem sortir otomatis",
+    tahun: "1955",
+    cakupan: "Global",
+    url: "/logos/tksl-logo.png",
+    web: "https://tksl.co.jp/",
+  },
+  {
+    _id: "libiao",
+    nama: "Zhejiang Libiao Robots Co., Ltd.",
+    bidang:
+      "Robot sortir cerdas (Mini-sorting robots) dan sistem logistik otomatis",
+    tahun: "2016",
+    cakupan: "Global",
+    url: "/logos/libiao-logo.svg",
+    web: "https://libiaorobot.com/",
+  },
+  {
+    _id: "seer",
+    nama: "Shanghai Seer Intelligent Technology Co., Ltd.",
+    bidang:
+      "Autonomous Mobile Robots (AMR), sistem kontrol robot, dan solusi digitalisasi pabrik",
+    tahun: "2016",
+    cakupan: "Global",
+    url: "/logos/seer-logo.svg",
+    web: "https://seer-robotics.ai/",
+  },
+  {
+    _id: "cellumation",
+    nama: "Cellumation GmbH",
+    bidang:
+      "Teknologi konveyor seluler (Celluveyor) yang fleksibel untuk penyortiran dan pengaturan posisi barang",
+    tahun: "2017",
+    cakupan: "Global",
+    url: "/logos/cellumation-logo.svg",
+    web: "https://cellumation.com/",
+  },
+  {
+    _id: "modula",
+    nama: "Modula S.p.A.",
+    bidang:
+      "Vertical Lift Modules (VLM), solusi penyimpanan otomatis, dan manajemen gudang hemat ruang",
+    tahun: "1987",
+    cakupan: "Global",
+    url: "/logos/modula-logo.svg",
+    web: "https://modula.eu/",
+  },
+  {
+    _id: "kengic",
+    nama: "Kengic Intelligent Technology Co., Ltd.",
+    bidang:
+      "Sistem logistik cerdas, integrasi sistem manufaktur, dan solusi Smart Factory",
+    tahun: "2015",
+    cakupan: "Asia Pasifik dan Eropa",
+    url: "/logos/kengic-logo.svg",
+    web: "https://kengic.com/",
+  },
+];
+---
+
+<BaseLayout title="About Us - SolusiGudang">
+  <section class="pt-32 pb-20 bg-slate-50">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+        <div class="w-full lg:w-[60%] order-2 lg:order-1">
+          <div class="justified-gallery" id="photoswipe">
+            {
+              imageList.map((image, index) => (
+                <div
+                  style={`--width: ${image.default.width}; --height: ${image.default.height};`}
+                >
+                  <Image
+                    format="webp"
+                    src={image.default}
+                    alt=""
+                    height={150}
+                    loading="eager"
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="w-full lg:w-[40%] order-1 lg:order-2">
+          <div
+            class="inline-block px-4 py-2 mb-4 bg-teal-100 text-teal-800 text-sm font-semibold rounded-full"
+          >
+            Tentang Kami
+          </div>
+          <h1 class="text-4xl font-bold text-slate-900 mb-6">
+            Mentransformasi Logistik Indonesia dengan <span
+              class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600"
+              >Teknologi Global</span
+            >
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            SolusiGudang hadir sebagai mitra strategis untuk mengatasi tantangan
+            operasional yang Anda hadapi melalui penyediaan teknologi terkini.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            Kami mengintegrasikan sistem dari partner dunia untuk memastikan
+            gudang Anda beroperasi dengan efisiensi maksimal dan akurasi tinggi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6 max-w-10xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">
+          Profil Perusahaan
+        </h2>
+        <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <div class="md:w-1/3">
+          <div
+            class="relative h-[300px] group overflow-hidden rounded-2xl shadow-lg"
+          >
+            <Image
+              src={msifactory}
+              alt="Factory"
+              class="w-full h-full object-cover"
+              width={1200}
+              height={800}
+              loading="lazy"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent"
+            >
+              <div
+                class="inline-block px-3 py-1 mb-3 bg-blue-500/20 backdrop-blur-md text-blue-200 text-xs font-bold rounded-full border border-blue-500/30"
+              >
+                Headquarters
+              </div>
+              <h2 class="text-white text-2xl font-bold">Kantor Pusat</h2>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-2/3 w-full">
+          <CompanyTable client:load />
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-10 mx-auto px-6 text-center">
+      <div
+        class="rounded-2xl overflow-hidden shadow-lg border-4 border-white h-[600px]"
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.589975759492!2d107.17805567588458!3d-6.31746666182242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b6a4d341fa3%3A0xd660c082374d6073!2sPT.%20MAKITECH%20SISTEM%20INDONESIA!5e0!3m2!1sid!2sid!4v1768315494906!5m2!1sid!2sid"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          title="Lokasi kantor PT. Makitech Sistem Indonesia di Google Maps"
+        >
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-18 bg-white">
+    <div class="container mx-auto px-6 max-w-10xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Profil Partner</h2>
+        <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+      </div>
+      <CompanyTables companyData={companyData} client:load />
+    </div>
+  </section></BaseLayout
+>
+
+<style>
+  .justified-gallery {
+    --padding: max(2.5vw, 12px);
+    --space: max(2.5vw, 12px);
+    --min-height: clamp(75px, 7vw, 150px);
+
+    padding: var(--padding);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space);
+
+    div {
+      flex-grow: calc(var(--width) * (100000 / var(--height)));
+      flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+      aspect-ratio: var(--width) / var(--height);
+      overflow: hidden;
+      opacity: 1;
+      transition: all 0.05s ease-in-out;
+    }
+
+    div img {
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    div:focus-visible {
+      outline: 3px solid var(--outline);
+      outline-offset: 2px;
+      transform: scale(1.05);
+      z-index: 1;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    div.hidden {
+      transition: opacity 0.4s ease-in-out;
+      opacity: 0;
+    }
+
+    &::after {
+      content: " ";
+      flex-grow: 1000000000;
+    }
+  }
+</style>

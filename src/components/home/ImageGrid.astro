@@ -1,0 +1,206 @@
+---
+import ImageReveal from "@components/react/ImageReveal";
+import { Image } from "astro:assets";
+import storageopt from "@assets/yhZMnO6D8qp59vwAx6MlI6.webp";
+import vstorage from "@assets/modula-flexibox.jpg";
+import inttrans from "@assets/photo-13LTRXVui7Uo.webp";
+import austosort from "@assets/LIBIAO-pt-pos-indonesia-900x635-1.jpg";
+import matshand from "@assets/hansou_05.jpg";
+import ergohand from "@assets/picture-70d3nZYHl5It.webp";
+---
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div
+        class="inline-block px-4 py-2 mb-4 bg-teal-100 text-teal-800 text-sm font-semibold rounded-full"
+      >
+        Solusi Kami
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+        Masalah Anda, <br /> Ada <span
+          class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600"
+          >Solusi</span
+        >-nya
+      </h2>
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Kami memahami tantangan yang Anda hadapi dan menyediakan solusi
+        teknologi terkini untuk mengatasinya
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Large featured image -->
+      <div class="md:row-span-2">
+        <ImageReveal client:load delay={0.1}>
+          <div
+            class="relative h-full group overflow-hidden rounded-2xl shadow-xl"
+          >
+            <Image
+              src={inttrans}
+              alt="Manufacturing floor with precision equipment"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width={1200}
+              height={600}
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+            >
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-xl font-bold mb-1">Intelligent Transport</h3>
+              <p class="text-sm text-gray-200">
+                Transportasi barang dengan peralatan presisi bersertifikat ISO
+              </p>
+            </div>
+          </div>
+        </ImageReveal>
+      </div>
+      <ImageReveal client:load delay={0.2}>
+        <div
+          class="lg:col-span-2 relative h-64 lg:h-auto group overflow-hidden rounded-2xl shadow-xl"
+        >
+          <Image
+            src={storageopt}
+            alt="Control center with real-time monitoring"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width={800}
+            height={600}
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+          >
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-xl font-bold mb-1">Storage Optimization</h3>
+            <p class="text-sm text-gray-200">
+              Kontrol real-time untuk pemanfaatan ruang gudang yang paling
+              efisien
+            </p>
+          </div>
+        </div>
+      </ImageReveal>
+      <ImageReveal client:load delay={0.3}>
+        <div
+          class="relative h-64 lg:h-auto group overflow-hidden rounded-2xl shadow-xl"
+        >
+          <Image
+            src={vstorage}
+            alt="Vertical Storage"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width={800}
+            height={600}
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+          >
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-xl font-bold mb-1">Vertical Storage</h3>
+            <p class="text-sm text-gray-200">
+              Maksimalkan Penyimpanan Barang Dengan Sistem Vertical Storage
+            </p>
+          </div>
+        </div>
+      </ImageReveal>
+      <div class="lg:row-start-3">
+        <ImageReveal client:load delay={0.4}>
+          <div
+            class="relative h-64 lg:h-auto group overflow-hidden rounded-2xl shadow-xl"
+          >
+            <Image
+              src={austosort}
+              alt="Fleet of modern delivery trucks"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width={800}
+              height={600}
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+            >
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-xl font-bold mb-1">Automated Sorting</h3>
+              <p class="text-sm text-gray-200">
+                Pemilahan otomatis dengan armada dan rute yang optimal
+              </p>
+            </div>
+          </div>
+        </ImageReveal>
+      </div>
+      <div class="lg:row-start-2 lg:col-start-2 lg:row-span-2 lg:col-span-2">
+        <ImageReveal client:load delay={0.5}>
+          <div
+            class="relative h-64 lg:h-auto group overflow-hidden rounded-2xl shadow-xl"
+          >
+            <Image
+              src={matshand}
+              alt="Distribution center with sorting systems"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width={800}
+              height={600}
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+            >
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-xl font-bold mb-1">Transport Handling</h3>
+              <p class="text-sm text-gray-200">
+                Pemilahan berkecepatan tinggi dan akurat
+              </p>
+            </div>
+          </div>
+        </ImageReveal>
+      </div>
+      <div class="md:col-span-3">
+        <ImageReveal client:load delay={0.6}>
+          <div
+            class="relative h-full group overflow-hidden rounded-2xl shadow-xl"
+          >
+            <Image
+              src={ergohand}
+              alt="Automated warehouse with modern robotics"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width={1200}
+              height={600}
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent"
+            >
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <h3 class="text-2xl font-bold mb-2">Ergonomic Handling</h3>
+              <p class="text-gray-200">
+                Solusi inventaris berbasis robotika untuk efisiensi kerja
+                maksimal
+              </p>
+            </div>
+          </div>
+        </ImageReveal>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-16">
+      <a
+        href="/solutions"
+        class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-linear-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 rounded-lg shadow-lg hover:shadow-xl transition-all group"
+      >
+        Pelajari Solusinya
+        <svg
+          class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

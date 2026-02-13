@@ -1,0 +1,131 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@components/ui/Section.astro";
+import Card from "@components/ui/Card.astro";
+import RFQForm from "@components/react/RFQForm";
+import { Image } from "astro:assets";
+import { Phone, Mail, MessageCircle } from "lucide-react";
+import rfqBgImg from "@assets/banner/photo-1450101499163-c8848c66ca85.jpg";
+// import warehouseImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
+---
+
+<BaseLayout title="Request a Quote - Get Started Today">
+  <!-- Hero Section with Professional Image -->
+  <section
+    class="relative h-[500px] md:h-[600px] flex items-center overflow-hidden"
+  >
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <Image
+        src={rfqBgImg}
+        alt="Professional logistics and supply chain management"
+        class="w-full h-full object-cover"
+        width={2070}
+        height={1380}
+        loading="eager"
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-blue-900/90 to-slate-900/85"
+      >
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp"
+          style="animation-delay: 0.1s"
+        >
+          Ajukan <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400"
+            >Quotation</span
+          > Sekarang!
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed animate-fadeInUp"
+          style="animation-delay: 0.2s"
+        >
+          Ceritakan kebutuhan operasional Anda kepada tim ahli kami. Kami siap
+          menyusun strategi dan penawaran terbaik untuk meningkatkan efisiensi
+          sistem pergudangan serta integrasi teknologi Anda.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Form Section -->
+  <Section background="gray">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <Card>
+          <RFQForm client:load />
+        </Card>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Contact Info Card -->
+        <Card class="bg-linear-to-br from-blue-50 to-teal-50 border-blue-200">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-lg bg-linear-to-br from-blue-600 to-teal-600 flex items-center justify-center mr-3"
+            >
+              <Phone className="w-5 h-5 text-white" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Butuh Bantuan?</h3>
+          </div>
+          <div class="space-y-4 text-sm">
+            <div
+              class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center shrink-0"
+              >
+                <Phone className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Telpon</div>
+                <div class="text-gray-600 font-medium">021-2851-8211</div>
+                <div class="text-gray-500 text-xs">Sen-Jum, 8am-5pm WIB</div>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center shrink-0"
+              >
+                <Mail className="w-5 h-5 text-teal-600" />
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Email</div>
+                <div class="text-gray-600 font-medium">sales@makitech.com</div>
+                <div class="text-gray-500 text-xs">Sen-Jum, 8am-5pm WIB</div>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center shrink-0"
+              >
+                <MessageCircle className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">
+                  Live Chat Whatsapp
+                </div>
+                <div class="text-gray-600 font-medium">0811-1985-190</div>
+                <div class="text-gray-500 text-xs">Instant support</div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

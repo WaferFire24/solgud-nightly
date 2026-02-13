@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
+import warehouseBgImg from "@assets/banner/photo-1553413077-190dd305871c.jpg";
+---
+
+<section class="relative py-32 overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <Image
+      src={warehouseBgImg}
+      alt="Modern warehouse operations"
+      class="w-full h-full object-cover"
+      width={2070}
+      height={1380}
+    />
+    <div
+      class="absolute inset-0 bg-linear-to-r from-blue-900/95 to-teal-900/95"
+    >
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Sudah Siap Transformasi dengan <span
+          class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-teal-400"
+          >SolusiGudang</span
+        >?
+      </h2>
+      <p
+        class="text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed"
+      >
+        Bergabunglah dengan 100+ perusahaan yang telah meningkatkan efisiensi
+        operasional mereka dengan solusi kami. Konsultasi gratis untuk
+        menentukan solusi terbaik bagi bisnis Anda.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+        <a
+          href="/rfq"
+          class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-900 bg-white hover:bg-slate-100 rounded-lg shadow-2xl hover:shadow-3xl transition-all group"
+        >
+          Request a Quote
+          <svg
+            class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

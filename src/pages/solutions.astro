@@ -1,0 +1,305 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/ui/Section.astro";
+import Card from "../components/ui/Card.astro";
+import CapabilityAccordion from "../components/react/CapabilityAccordion";
+import CTA from "../components/home/PremiumCTA.astro";
+import { Image } from "astro:assets";
+import ImageReveal from "../components/react/ImageReveal";
+import { AlertCircle } from "lucide-react";
+import heroBgImg from "@assets/banner/photo-1586528116311-ad8dd3c8310d.jpg";
+
+import storageopt from "@assets/yhZMnO6D8qp59vwAx6MlI6.webp";
+import ergohand from "@assets/picture-70d3nZYHl5It.webp";
+import inttrans from "@assets/photo-13LTRXVui7Uo.webp";
+import austosort from "@assets/LIBIAO-pt-pos-indonesia-900x635-1.jpg";
+import matshand from "@assets/hansou_05.jpg";
+import vstorage from "@assets/modula-flexibox.jpg";
+
+const capabilities = [
+  {
+    problem: "Kesulitan Manajemen Ruang",
+    challange:
+      "Kapasitas gudang yang cepat penuh namun sulit dipantau, serta kehilangan data stok yang sering terjadi",
+    title: "Storage Optimization",
+    description:
+      "Sistem kontrol terpusat untuk memaksimalkan setiap jengkal ruang gudang Anda melalui visibilitas data penuh.",
+    image: storageopt,
+    features: [
+      "Dashboard monitoring operasional secara real-time",
+      "Visualisasi 3D kapasitas penyimpanan untuk deteksi ruang kosong",
+      "Notifikasi otomatis untuk manajemen stok yang lebih proaktif",
+    ],
+  },
+  {
+    problem: "Keterbatasan Lahan & Area",
+    challange:
+      "Tingginya biaya sewa lahan namun area penyimpanan sudah tidak mampu menampung stok yang terus bertambah, menghambat pertumbuhan operasional",
+    title: "Vertical Storage",
+    description:
+      "Manfaatkan ketinggian gedung Anda secara maksimal dengan sistem penyimpanan otomatis yang membawa barang langsung ke operator.",
+    image: vstorage,
+    features: [
+      "Mengubah area horizontal yang luas menjadi penyimpanan vertikal yang padat",
+      "Mengurangi waktu berjalan operator dengan sistem pengambilan barang otomatis yang cepat",
+      "Integrasi sensor untuk memastikan setiap barang terdata secara otomatis saat masuk dan keluar",
+    ],
+  },
+  {
+    problem: "Human-Error",
+    challange:
+      "Kesalahan pengiriman akibat salah sortir manual dan keterlambatan pengiriman karena rute armada yang tidak efisien",
+    title: "Automated Sorting",
+    description:
+      "Otomatisasi pemilahan barang berkecepatan tinggi yang terhubung langsung dengan sistem manajemen armada modern.",
+    image: austosort,
+    features: [
+      "Pemindaian otomatis untuk akurasi sortir hingga 99.9%",
+      "Armada modern dengan sistem pelacakan real-time",
+      "Algoritma optimasi rute untuk memangkas waktu pengiriman",
+    ],
+  },
+  {
+    problem: "Standar Konsisten Tinggi",
+    challange:
+      "Alur perpindahan bahan baku di area produksi yang tidak konsisten dan berisiko tinggi menghambat garis manufaktur",
+    title: "Intelligent Transport",
+    description:
+      "Solusi transportasi internal cerdas yang menjamin kelancaran arus barang di lantai produksi dengan standar keamanan internasional.",
+    image: inttrans,
+    features: [
+      "Peralatan transportasi presisi bersertifikat ISO",
+      "Navigasi otomatis yang aman beroperasi di sekitar manusia",
+      "Sinkronisasi otomatis dengan jadwal produksi manufaktur",
+    ],
+  },
+  {
+    problem: "Resiko Cedera",
+    challange:
+      "Gudang yang berantakan, proses picking barang yang lambat karena manual, serta risiko kelelahan dan cedera pada staf operasional",
+    title: "Ergonomic Handling",
+    description:
+      "Sistem manajemen inventaris pintar yang memadukan AI dengan teknologi robotika untuk menciptakan lingkungan kerja yang ergonomis.",
+    image: ergohand,
+    features: [
+      "Sistem Goods-to-Person yang meminimalisir pergerakan manual operator",
+      "Integrasi robotika AMR untuk pengambilan barang otomatis",
+      "Optimasi layout penyimpanan berbasis AI untuk akses barang tercepat",
+    ],
+  },
+  {
+    problem: "Bottleneck Muatan",
+    challange:
+      "Penumpukan barang di area bongkar muat yang menghambat arus keluar-masuk barang dalam jumlah besar",
+    title: "Transport handling",
+    description:
+      "Sistem penanganan transportasi berkapasitas tinggi yang dirancang untuk mempercepat proses pemindahan barang antar moda.",
+    image: matshand,
+    features: [
+      "Teknologi High-speed sorting untuk volume barang besar",
+      "Sistem Cross-docking otomatis yang meminimalisir waktu inap barang",
+      "Konektivitas end-to-end dari area penerimaan hingga pengiriman",
+    ],
+  },
+];
+---
+
+<BaseLayout title="Our Solution - SolusiGudang">
+  <!-- Hero Section -->
+  <section
+    class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden"
+  >
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <Image
+        src={heroBgImg}
+        alt="Modern logistics and manufacturing capabilities"
+        class="w-full h-full object-cover"
+        width={2070}
+        height={1380}
+        loading="eager"
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"
+      >
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+        >
+          Berbagai <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400"
+            >Solusi</span
+          >
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed"
+        >
+          Berbagai Solusi komprehensif untuk berbagai masalah pergudangan yang
+          didesain untuk mengoptimalkan operasi perusahaan anda.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Capabilities -->
+  <Section background="gray">
+    <!-- Accordion View for Mobile/Compact -->
+    <div class="lg:hidden mb-12">
+      <CapabilityAccordion capabilities={capabilities} client:load />
+    </div>
+
+    <!-- Grid View for Desktop -->
+    <div class="hidden lg:block space-y-24">
+      {
+        capabilities.map((capability, index) => (
+          <div
+            id={capability.title.toLowerCase().replace(/\s+/g, "-")}
+            class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-dense" : ""}`}
+          >
+            <div
+              class={`${index % 2 === 1 ? "lg:col-start-2" : ""} animate-fadeInUp`}
+            >
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {capability.title}
+              </h2>
+              <div class="bg-red-50 border-l-4 border-red-500 rounded-r-lg p-5 mb-8">
+                <div class="flex items-start gap-3">
+                  <AlertCircle className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
+                  <div>
+                    <h3 class="text-lg font-bold text-red-900 mb-2">
+                      {capability.problem}
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                      {capability.challange}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                {capability.description}
+              </p>
+              <ul class="space-y-3">
+                {capability.features.map((feature) => (
+                  <li class="flex items-center space-x-3">
+                    <svg
+                      class="w-5 h-5 text-teal-500 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div
+              class={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}
+            >
+              <ImageReveal client:load delay={index * 0.1}>
+                <div class="relative aspect-4/3 group overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={capability.image}
+                    alt={capability.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width={1200}
+                    height={800}
+                  />
+                  <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent" />
+                  <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-2">{capability.title}</h3>
+                    <p class="text-gray-200">{capability.description}</p>
+                  </div>
+                </div>
+              </ImageReveal>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- Process Section -->
+  <Section background="white">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Alur <span
+          class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600"
+          >Kerja</span
+        > Kami
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Sebuah pendekatan terpadu untuk memberikan hasil luar biasa di setiap
+        proyek.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        [
+          {
+            step: "01",
+            title: "Konsultasi",
+            description: "Memahami kebutuhan dan tantangan Anda",
+            icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>`,
+          },
+          {
+            step: "02",
+            title: "Perencanaan",
+            description: "Desain solusi yang disesuaikan dengan kebutuhan",
+            icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>`,
+          },
+          {
+            step: "03",
+            title: "Implemenatasi",
+            description: "Eksekusi dengan hati-hati dan teliti",
+            icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>`,
+          },
+          {
+            step: "04",
+            title: "Optimasi",
+            description: "Peningkatan berkelanjutan dan pemantauan kinerja",
+            icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>`,
+          },
+        ].map((process, index) => (
+          <Card
+            hover
+            class="text-center animate-fadeInUp group"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div set:html={process.icon} />
+            </div>
+            <div class="text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600 mb-2">
+              {process.step}
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              {process.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed">{process.description}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </Section>
+  <CTA />
+</BaseLayout>

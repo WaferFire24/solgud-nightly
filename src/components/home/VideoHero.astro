@@ -1,0 +1,50 @@
+---
+import Button from '../ui/Button.astro';
+
+const posterUrl = `/images/hero-fallback.jpg`; // Gambar fallback jika video tidak muat
+const videoUrl = `/images/056c20e5-fb7e-4ce7-8148-6797ec968f06.webm`;
+---
+
+<section class="relative h-fit+10px min-h-svh flex items-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0">
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0"
+      poster={posterUrl}
+      >
+      <source src={videoUrl} type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl">
+      <br>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Optimasi Gudang Anda dengan Teknologi
+        <span class="block text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400 mt-2">
+          SolusiGudang
+        </span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-2xl leading-relaxed">
+        Tingkatkan efisiensi operasional gudang Anda hingga 300% dengan solusi inovatif kami. Dari penyimpanan vertikal hingga robotika otomatis.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        <Button href="/solutions" size="lg" variant="outline" class="border-2! border-white! text-white! hover:bg-white/10! shadow-2xl!">
+          Pelajari lebih lanjut
+        </Button>
+        <Button href="/rfq" size="lg" class="bg-blue-600! hover:bg-blue-700! text-white! shadow-2xl!">
+          Hubungi Kami
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+

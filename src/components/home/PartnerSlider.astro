@@ -1,0 +1,75 @@
+---
+const partners = [
+  { name: "TKSL Japan", logo: "/logos/tksl-logo2.png", url: "/about#tksl" },
+  { name: "Libiao", logo: "/logos/libiao-logo.svg", url: "/about#libiao" },
+  { name: "SEER Robotics", logo: "/logos/seer-logo.svg", url: "/about#seer" },
+  {
+    name: "Cellumation",
+    logo: "/logos/cellumation-logo.svg",
+    url: "/about#cellumation",
+  },
+  { name: "Kengic", logo: "/logos/kengic-logo.svg", url: "/about#kengic" },
+  { name: "Modula", logo: "/logos/modula-logo.svg", url: "/about#modula" },
+  {
+    name: "Makitech Sistem Indonesia",
+    logo: "/logos/msi-logo.svg",
+    url: "/about",
+  },
+];
+import { Image } from "astro:assets";
+const doublePartners = [...partners, ...partners];
+---
+
+<section class="py-20 bg-white overflow-hidden">
+  <div class="container mx-auto px-4 mb-10 text-center">
+    <div
+      class="inline-block px-4 py-2 mb-4 bg-sky-100 text-sky-800 text-sm font-semibold rounded-full"
+    >
+      Mitra Kami
+    </div>
+    <p class="text-5xl font-bold text-slate-900">
+      Integrasi Teknologi Kelas Dunia
+      <br /><span
+        class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600"
+        >Solusi</span
+      > Efisiensi Pergudangan Anda
+    </p>
+  </div>
+
+  <div class="relative flex overflow-x-hidden group">
+    <div
+      class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"
+    >
+    </div>
+
+    <div class="animate-marquee flex items-center gap-16">
+      {
+        doublePartners.map((partner) => (
+          <a
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 cursor-pointer"
+            title={`Visit ${partner.name} website`}
+          >
+            <div class="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                class="h-12 w-auto object-contain"
+                width={1200}
+                height={800}
+                loading="lazy"
+              />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div
+      class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"
+    >
+    </div>
+  </div>
+</section>
