@@ -1,16 +1,13 @@
-// @ts-check
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare'; // Ganti dari node
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [react()],
   output: "server",
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: cloudflare(), // Gunakan adapter cloudflare
   image: {
     remotePatterns: [
       {
