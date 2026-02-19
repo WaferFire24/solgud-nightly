@@ -7,7 +7,7 @@ interface Capability {
   challange: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
   features: string[];
 }
 

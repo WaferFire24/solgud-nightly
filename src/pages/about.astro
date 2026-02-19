@@ -3,9 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CompanyTable from "../components/react/CompanyTable";
 import CompanyTables from "../components/react/CompanyTables";
 // import PartnerSlider from '../components/home/PartnerSlider.astro';
+import rfqBgImg from "@assets/banner/photo-1450101499163-c8848c66ca85.jpg";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import msifactory from "@assets/company/IMG_4419.jpg";
+import Section from "@/components/ui/Section.astro";
 // Data untuk Kotak Portfolio (Kotak X di sketsa)
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -189,8 +191,51 @@ const companyData = [
       </div>
       <CompanyTables companyData={companyData} client:load />
     </div>
-  </section></BaseLayout
->
+  </section>
+  <Section>
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+      <div class="absolute inset-0">
+        <Image
+          src={rfqBgImg}
+          alt="Modern warehouse facility with advanced logistics technology"
+          class="w-full h-full object-cover"
+          width={2070}
+          height={800}
+        />
+        <div
+          class="absolute inset-0 bg-linear-to-r from-slate-900/90 via-blue-900/80 to-slate-900/70"
+        >
+        </div>
+      </div>
+      <div class="relative z-10 p-12 md:p-16 text-center text-white">
+        <h3 class="text-3xl md:text-4xl font-bold mb-4">
+          Ingin Mengenal Kami Lebih Jauh?
+        </h3>
+        <p class="text-xl text-slate-200 mb-8 max-w-2xl mx-auto">
+          Unduh Company Profile lengkap kami di bawah ini.
+        </p>
+        <a
+          href="http://localhost:8055/assets/77c139b9-5f37-4ca8-9c4d-0d6f959b6563"
+          class="inline-flex items-center px-8 py-4 bg-linear-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+        >
+          Unduh Company Profile
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
 
 <style>
   .justified-gallery {

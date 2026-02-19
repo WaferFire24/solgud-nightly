@@ -7,8 +7,21 @@ import Button from "../../components/ui/Button.astro";
 import Section from "../../components/ui/Section.astro";
 import Container from "../../components/ui/Container.astro";
 import { Image } from "astro:assets";
-import { getDirectusPublicUrl } from "../../lib/config";
+import { getDirectusPublicUrl, getDirectusInternalUrl } from "../../lib/config";
 const directusPublicUrl = getDirectusPublicUrl();
+const directusInternalUrl = getDirectusInternalUrl();
+
+export async function getStaticPaths() {
+  const products = await directus.request(
+    readItems("products", {
+      fields: ["slug"],
+    }),
+  );
+
+  return products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+}
 
 // 1. Ambil slug dari parameter URL
 const { slug } = Astro.params;

@@ -26,8 +26,8 @@ export default function RFQForm() {
     };
 
     try {
-      // 3. Menggunakan API Proxy Internal (Lebih Aman)
-      const response = await fetch('/api/rfq', {
+      // 3. Menggunakan API Directus Langsung (Untuk Static Build)
+      const response = await fetch(import.meta.env.PUBLIC_QUOTATION_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

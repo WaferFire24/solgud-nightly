@@ -30,6 +30,7 @@ const capabilities = [
       "Visualisasi 3D kapasitas penyimpanan untuk deteksi ruang kosong",
       "Notifikasi otomatis untuk manajemen stok yang lebih proaktif",
     ],
+    useCaseCategory: "Storage Optimization",
   },
   {
     problem: "Keterbatasan Lahan & Area",
@@ -44,6 +45,7 @@ const capabilities = [
       "Mengurangi waktu berjalan operator dengan sistem pengambilan barang otomatis yang cepat",
       "Integrasi sensor untuk memastikan setiap barang terdata secara otomatis saat masuk dan keluar",
     ],
+    useCaseCategory: "Vertical Storage",
   },
   {
     problem: "Human-Error",
@@ -58,6 +60,7 @@ const capabilities = [
       "Armada modern dengan sistem pelacakan real-time",
       "Algoritma optimasi rute untuk memangkas waktu pengiriman",
     ],
+    useCaseCategory: "Automated Sorting",
   },
   {
     problem: "Standar Konsisten Tinggi",
@@ -72,6 +75,7 @@ const capabilities = [
       "Navigasi otomatis yang aman beroperasi di sekitar manusia",
       "Sinkronisasi otomatis dengan jadwal produksi manufaktur",
     ],
+    useCaseCategory: "Intelligent Transport",
   },
   {
     problem: "Resiko Cedera",
@@ -86,12 +90,13 @@ const capabilities = [
       "Integrasi robotika AMR untuk pengambilan barang otomatis",
       "Optimasi layout penyimpanan berbasis AI untuk akses barang tercepat",
     ],
+    useCaseCategory: "Ergonomic Handling",
   },
   {
     problem: "Bottleneck Muatan",
     challange:
       "Penumpukan barang di area bongkar muat yang menghambat arus keluar-masuk barang dalam jumlah besar",
-    title: "Transport handling",
+    title: "Transport Handling",
     description:
       "Sistem penanganan transportasi berkapasitas tinggi yang dirancang untuk mempercepat proses pemindahan barang antar moda.",
     image: matshand,
@@ -100,6 +105,7 @@ const capabilities = [
       "Sistem Cross-docking otomatis yang meminimalisir waktu inap barang",
       "Konektivitas end-to-end dari area penerimaan hingga pengiriman",
     ],
+    useCaseCategory: "Transport Handling",
   },
 ];
 ---
@@ -203,6 +209,28 @@ const capabilities = [
                   </li>
                 ))}
               </ul>
+
+              <div class="mt-10">
+                <a
+                  href={`/use-cases?category=${encodeURIComponent(capability.useCaseCategory)}`}
+                  class="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-black tracking-widest rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-100"
+                >
+                  Pelajari Lebih Lanjut
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
             <div
               class={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}

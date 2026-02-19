@@ -2,13 +2,14 @@
 export const SITE = {
   title: 'SolusiGudang',
   description: 'Solusi pergudangan modern untuk meningkatkan efisiensi dan produktivitas bisnis Anda. ',
-  url: 'https://staging.solusigudang.id',
+  url: 'https://solgud-nightly.dev',
   author: 'SolusiGudang - a part of Makitech Sistem Indonesia',
 } as const;
 
 export const NAVIGATION = [
   { name: 'Home', href: '/' },
   { name: 'Solution', href: '/solutions' },
+  { name: 'Use Cases', href: '/use-cases' },
   { name: 'Products', href: '/products' },
   { name: 'About', href: '/about' },
 ] as const;

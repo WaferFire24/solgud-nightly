@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import directus from "../../lib/directus";
+import { readItems } from "@directus/sdk";
+import Section from "../../components/ui/Section.astro";
+import Container from "../../components/ui/Container.astro";
+import { Image } from "astro:assets";
+import { getDirectusPublicUrl, getDirectusInternalUrl } from "../../lib/config";
+import { Calendar, Tag, ChevronLeft } from "lucide-react";
+
+export async function getStaticPaths() {
+  const posts = await directus.request(
+    readItems("blog_post", {
+      fields: ["slug"],
+      filter: {
+        status: { _eq: "published" },
+      },
+    }),
+  );
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const directusPublicUrl = getDirectusPublicUrl();
+const directusInternalUrl = getDirectusInternalUrl();
+
+// Fetch detail use case
+const posts = await directus.request(
+  readItems("blog_post", {
+    filter: { slug: { _eq: slug } },
+    fields: ["*", "image"],
+    limit: 1,
+  }),
+);
+
+const post = posts[0];
+
+if (!post) {
+  return Astro.redirect("/404");
+}
+
+const tagsArray = Array.isArray(post.tags)
+  ? post.tags
+  : typeof post.tags === "string"
+    ? post.tags.split(",").map((t) => t.trim())
+    : [];
+
+const formattedDate = new Date(post.date_created).toLocaleDateString("id-ID", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={`${post.title} - Use Case SolusiGudang`}>
+  <!-- Hero / Header -->
+  <section
+    class="relative pt-24 pb-12 md:pt-40 md:pb-32 bg-slate-900 border-b border-slate-800 overflow-hidden"
+  >
+    <div class="absolute inset-0">
+      {
+        post.image && (
+          <Image
+            src={`${directusPublicUrl}/assets/${post.image}`}
+            alt={post.title}
+            width={1600}
+            height={900}
+            class="w-full h-full object-cover"
+          />
+        )
+      }
+      <div
+        class="absolute inset-0 bg-linear-to-b from-slate-900 opacity-70 to-slate-900"
+      >
+      </div>
+    </div>
+
+    <Container class="relative z-10">
+      <a
+        href="/use-cases"
+        class="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors uppercase tracking-widest mb-12 group"
+      >
+        <ChevronLeft
+          className="w-4 h-4 group-hover:-translate-x-1 transition-transform"
+        />
+        <span>Back to Use Cases</span>
+      </a>
+
+      <div class="max-w-4xl">
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span
+            class="px-4 py-1.5 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg"
+          >
+            {post.category}
+          </span>
+          {
+            tagsArray.map((tag) => (
+              <span class="px-4 py-1.5 bg-slate-800 text-slate-300 text-[10px] font-black uppercase tracking-widest rounded-full border border-slate-700">
+                # {tag}
+              </span>
+            ))
+          }
+        </div>
+
+        <h1
+          class="text-4xl md:text-6xl font-black text-white leading-tight md:leading-none tracking-tighter mb-8 uppercase"
+        >
+          {post.title}
+        </h1>
+
+        <div
+          class="flex items-center gap-6 text-slate-400 text-sm font-bold uppercase tracking-widest"
+        >
+          <div class="flex items-center gap-2">
+            <Calendar className="w-4 h-4" />
+            {formattedDate}
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Content -->
+  <Section class="bg-white">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <main class="lg:col-span-8">
+          <div
+            class="prose prose-slate prose-base md:prose-xl max-w-none text-gray-700 leading-relaxed font-medium
+             prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter
+             prose-strong:text-gray-900 prose-a:text-blue-600 prose-img:rounded-3xl prose-img:shadow-xl"
+          >
+            <div set:html={post.content} />
+          </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 self-start sticky top-32">
+          <div
+            class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm"
+          >
+            <h3
+              class="text-lg font-black uppercase tracking-widest text-gray-900 mb-6 flex items-center gap-3"
+            >
+              <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
+              Butuh Solusi Serupa?
+            </h3>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              Kami siap membantu Anda mengimplementasikan solusi pergudangan
+              yang tepat sasaran untuk bisnis Anda.
+            </p>
+            <a
+              href="/rfq"
+              class="flex items-center justify-center w-full py-4 bg-blue-600 text-white font-black tracking-widest rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-100"
+            >
+              Konsultasi Sekarang
+            </a>
+          </div>
+        </aside>
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>
