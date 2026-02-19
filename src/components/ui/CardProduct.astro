@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getDirectusPublicUrl } from "../../lib/config";
+import { sanitizeHtml } from "../../lib/sanitize";
 const { product } = Astro.props;
 const directusPublicUrl = getDirectusPublicUrl();
 
@@ -63,7 +64,7 @@ const highlights = [
           </h2>
           <div
             class="text-base mt-2 line-clamp-3 prose-slate prose"
-            set:html={product.shortdesc?.slice(0, 100) + "..."}
+            set:html={sanitizeHtml(product.shortdesc?.slice(0, 100) + "...")}
           />
         </div>
       </div>

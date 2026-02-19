@@ -33,3 +33,6 @@ Dockerfile
 
 # backup files
 *.bak
+
+# App Pentest
+pentest/

@@ -7,6 +7,7 @@ import Container from "../../components/ui/Container.astro";
 import { Image } from "astro:assets";
 import { getDirectusPublicUrl, getDirectusInternalUrl } from "../../lib/config";
 import { Calendar, Tag, ChevronLeft } from "lucide-react";
+import { sanitizeHtml } from "../../lib/sanitize";
 
 export async function getStaticPaths() {
   const posts = await directus.request(
@@ -133,7 +134,7 @@ const formattedDate = new Date(post.date_created).toLocaleDateString("id-ID", {
              prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter
              prose-strong:text-gray-900 prose-a:text-blue-600 prose-img:rounded-3xl prose-img:shadow-xl"
           >
-            <div set:html={post.content} />
+            <div set:html={sanitizeHtml(post.content)} />
           </div>
         </main>
 

@@ -1,0 +1,21 @@
+# ====================================================
+# Cloudflare Pages Security Headers
+# SolusiGudang — Defense-in-Depth HTTP Headers
+# ====================================================
+
+# Semua halaman
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://dapur.solusigudang.id data: blob:; connect-src 'self' https://dapur.solusigudang.id; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+
+# API endpoint — tambah CORS restriction
+/api/*
+  Access-Control-Allow-Origin: https://solusigudang.id
+  Access-Control-Allow-Methods: POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Access-Control-Max-Age: 86400

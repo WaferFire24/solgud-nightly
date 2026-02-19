@@ -8,6 +8,7 @@ import Section from "../../components/ui/Section.astro";
 import Container from "../../components/ui/Container.astro";
 import { Image } from "astro:assets";
 import { getDirectusPublicUrl, getDirectusInternalUrl } from "../../lib/config";
+import { sanitizeHtml } from "../../lib/sanitize";
 const directusPublicUrl = getDirectusPublicUrl();
 const directusInternalUrl = getDirectusInternalUrl();
 
@@ -113,7 +114,7 @@ const highlights = [
 
                 <div
                   class="prose prose-slate prose-lg max-w-none text-gray-600 mb-8"
-                  set:html={product.shortdesc}
+                  set:html={sanitizeHtml(product.shortdesc)}
                 />
               </div>
 
@@ -172,7 +173,7 @@ const highlights = [
           <div
             class="prose prose-slate prose-lg max-w-none mt-8 text-gray-700 leading-relaxed font-medium"
           >
-            <div set:html={product.description} />
+            <div set:html={sanitizeHtml(product.description)} />
           </div>
         </div>
       </div>

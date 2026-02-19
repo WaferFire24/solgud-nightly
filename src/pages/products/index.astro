@@ -25,10 +25,7 @@ try {
     }),
   );
   allItems = Array.isArray(response) ? response : [];
-  console.log("Categories fetch success:", allItems.length, "items found");
-} catch (error) {
-  console.error("FAILED to fetch categories from Directus:", error);
-}
+} catch (error) {}
 
 const categoriesRaw = allItems.map((p) => p.category).filter(Boolean);
 const categoryCounts = categoriesRaw.reduce((acc, cat) => {
@@ -67,35 +64,7 @@ try {
     }),
   );
   products = Array.isArray(productResponse) ? productResponse : [];
-} catch (error) {
-  console.error("FAILED to fetch filtered products from Directus:", error);
-}
-
-// const products = await directus.request(
-//   readItems("products", {
-//     filter: {
-//       _and: [
-//         isStaging
-//           ? { status: { _in: ["published", "staging"] } }
-//           : { status: { _eq: "published" } },
-//         categoryFilter && categoryFilter !== "all"
-//           ? { category: { _eq: categoryFilter } }
-//           : {},
-//       ],
-//     },
-//     fields: [
-//       "product_name",
-//       "slug",
-//       "image",
-//       "category",
-//       "shortdesc",
-//       "description",
-//       "year",
-//       "manufacturer",
-//       "capacity",
-//     ],
-//   }),
-// );
+} catch (error) {}
 
 const sideBarData = {
   categories,
