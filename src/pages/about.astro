@@ -2,13 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CompanyTable from "../components/react/CompanyTable";
 import CompanyTables from "../components/react/CompanyTables";
-// import PartnerSlider from '../components/home/PartnerSlider.astro';
-import rfqBgImg from "@assets/banner/photo-1450101499163-c8848c66ca85.jpg";
+import downBgImg from "@assets/banner/photo-1486312338219-ce68d2c6f44d.jpg";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import msifactory from "@assets/company/IMG_4419.jpg";
 import Section from "@/components/ui/Section.astro";
-// Data untuk Kotak Portfolio (Kotak X di sketsa)
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/*.{jpg,jpeg,png,webp}",
@@ -196,7 +194,7 @@ const companyData = [
     <div class="relative rounded-2xl overflow-hidden shadow-2xl">
       <div class="absolute inset-0">
         <Image
-          src={rfqBgImg}
+          src={downBgImg}
           alt="Modern warehouse facility with advanced logistics technology"
           class="w-full h-full object-cover"
           width={2070}
