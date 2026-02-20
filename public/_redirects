@@ -1,5 +1,5 @@
 # Catalog Proxy
-/catalog  https://dapur.solusigudang.id/assets/0fa4ef9a-36cb-42d2-949c-6dc969e3ffe5 200
+/catalog  https://dapur.solusigudang.id/assets/0fa4ef9a-36cb-42d2-949c-6dc969e3ffe5 301
 
 # PHP Legacy Redirects
 /index.php      /           301
